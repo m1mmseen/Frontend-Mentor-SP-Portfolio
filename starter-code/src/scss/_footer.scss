@@ -1,0 +1,80 @@
+footer {
+  padding: 50px 0;
+  background: $tertiary;
+  text-align: center;
+
+  .footer-title {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 100% */
+    letter-spacing: -1.136px;
+  }
+
+  form {
+    @include flex(column, stretch, center);
+    margin-top: 3rem;
+  }
+
+  ::placeholder {
+    color: $text-secondary;
+    text-transform: uppercase;
+    opacity: .5;
+    font-weight: 400;
+    vertical-align: top;
+  }
+
+  input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid $text-primary;
+    margin-top: 2rem;
+    padding-left: 1rem;
+    height: 43px;
+    color: $text-secondary;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  input:last-of-type{
+    height: 107px;
+  }
+
+  input:focus {
+    outline: none;
+    border-bottom: 1px solid $primary;
+  }
+
+  button {
+    align-self: flex-end;
+    margin-top: 2rem;
+  }
+
+  .errorMessage {
+    color: #FF6F5B;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: -0.167px;
+    text-align: right;
+    padding: .5rem 0;
+  }
+
+  .errorSign {
+    width: 24px;
+    height: 24px;
+    display: none;
+    text-align: right;
+    margin-top: -2rem;
+  }
+
+  .errorSign.visible {
+    display: block;
+    align-self: flex-end;
+  }
+}
+
+.invalidInput {
+  border-bottom: 1px solid hsla(7, 100%, 68%, 1);
+}

@@ -1,0 +1,85 @@
+
+@media screen and (min-width: 768px) {
+  body {
+    padding-inline: 2rem;
+  }
+
+  header {
+    align-items: stretch;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .profil-image {
+    top:0;
+    right:0;
+    width: 322px;
+    height: 600px;
+    overflow: visible;
+    background-image: url("../../assets/images/image-profile-tablet.webp");
+    background-size: cover;
+    z-index: -3;
+  }
+
+  .circle {
+    top: 470px;
+  }
+
+  .hero {
+    max-width: 500px;
+    height: 445px;
+    text-align: left;
+  }
+
+  .languages {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: flex-start;
+    text-align: left;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    padding-inline: 165px;
+  }
+
+  header {
+    margin-bottom: 104px;
+  }
+
+  .profil-image {
+    background-image: url("../../assets/images/image-profile-desktop.webp");
+    width: 445px;
+    height: 720px;
+    right: 165px;
+  }
+
+  .circle {
+    right: 550px;
+    top: 524px
+  }
+
+  .rings {
+    left: -250px;
+  }
+
+  .hero {
+    max-width: 706px;
+
+    p {
+      max-width: 445px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .languages {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: flex-start;
+    text-align: left;
+  }
+
+}

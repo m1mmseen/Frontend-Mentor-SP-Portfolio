@@ -1,0 +1,52 @@
+.section-header {
+  @include flex(row, center, space-between);
+  padding: 50px 0 0 0;
+
+  h2 {
+    @include heading-xl();
+  }
+}
+
+.projects {
+  position: relative;
+
+  .project-rings {
+    position: absolute;
+    top: -65px;
+    right: -350px;
+  }
+}
+
+picture img {
+  width: 345px;
+  height: 253px;
+}
+
+.project {
+
+  .project-title {
+    @include heading-m();
+  }
+
+  .used-languages {
+    margin-bottom: 12px;
+  }
+
+  .used-languages span{
+    text-transform: uppercase;
+    margin-right: 1rem;
+  }
+
+  .button-group {
+    margin-bottom: 2rem;
+  }
+
+  .button-group button{
+    font-size: 16px;
+    padding-left: 0;
+    margin-right: 1rem;
+  }
+
+
+}
+

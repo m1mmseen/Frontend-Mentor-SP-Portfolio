@@ -1,0 +1,81 @@
+/*   TABLE OF CONTENT
+
+    1. Typography
+    2. Layout
+    3. Components
+
+*/
+
+/* ----- TYPOGRAPHY ----- */
+
+@mixin heading-xl() {
+  font-size: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem);
+  letter-spacing: clamp(-0.1562rem, -0.0413rem + -0.1277vw, -0.0712rem);
+}
+
+@mixin heading-l() {
+  font-size: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px; /* 100% */
+  letter-spacing: -2.045px;
+}
+
+@mixin heading-m() {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+@mixin text() {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 155.556% */
+}
+
+@mixin element() {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: 2.286px;
+}
+
+@mixin logo() {
+  font-size: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 100% */
+  letter-spacing: -0.444px;
+}
+
+/* ----- LAYOUT ----- */
+
+@mixin flex($direction: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+/* ----- COMPONENTS ----- */
+
+@mixin button() {
+  border: none;
+  border-bottom: 2px solid $primary;
+  background: transparent;
+  color: $text-secondary;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: 2.286px;
+}

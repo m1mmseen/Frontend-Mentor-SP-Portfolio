@@ -1,0 +1,21 @@
+@import "mixins";
+
+$primary: hsl(153 71% 59%);
+$secondary: hsl(0 0% 8%);
+$tertiary: hsl(0 0% 14%);
+
+$text-primary: hsl(0 0% 85%);
+$text-secondary: hsl(0 0% 98%);
+
+@font-face {
+  font-family: spaceGrotesk;
+  src: url("../../assets/fonts/static/SpaceGrotesk-Medium.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: spaceGrotesk;
+  src: url("../../assets/fonts/static/SpaceGrotesk-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}

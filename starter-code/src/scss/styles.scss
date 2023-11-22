@@ -1,0 +1,82 @@
+@import "variables";
+@import "mixins";
+@import "header";
+@import "functions";
+@import "secLanguages";
+@import "secProjects";
+@import "footer";
+
+/* TABLE OF CONTENT
+
+    1. General (body and Images)
+    2. Components
+
+*/
+
+/* ----- GENERAL ----- */
+
+html {
+  width: 100svw;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: spaceGrotesk, sans-serif;
+  background-color: $secondary;
+  color: $text-secondary;
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  padding-inline: 1rem;
+}
+
+main {
+  margin: 0 0 100px 0;
+  padding: 0;
+
+}
+
+.circle,
+.rings,
+.profil-image {
+  z-index: -2;
+}
+
+.profil-image {
+  position: absolute;
+  width:174px;
+  height:383px;
+  top:0;
+  right:28%;
+  overflow: visible;
+  background-image: url("../../assets/images/image-profile-mobile.webp");
+  background-size: cover;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  right: -65px;
+  top: 250px;
+}
+
+.rings {
+  position: absolute;
+  left: -350px;
+  top: 125px;
+}
+
+/* ----- COMPONENTS ----- */
+
+button {
+  @include button();
+}
+
+button:hover {
+  color: $primary;
+}
+
+@import "mediaQueries";

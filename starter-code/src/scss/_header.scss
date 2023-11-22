@@ -1,0 +1,33 @@
+@import "mixins";
+
+header {
+  height: 620px;
+  padding-bottom: 80px;
+  @include flex(column, center, space-between)
+}
+
+nav {
+  @include flex(column, center, center);
+  row-gap: 1rem;
+  margin-top: 20px;
+
+  .logo {
+    @include logo();
+  }
+  .social-icons img {
+    padding-right: clamp(0.9375rem, 0.6074rem + 1.4085vw, 1.875rem);
+  }
+}
+
+.hero {
+  text-align: center;
+
+  h1 {
+    @include heading-xl();
+  }
+  span {
+    border-bottom: 4px solid $primary;
+  }
+}
+
+
