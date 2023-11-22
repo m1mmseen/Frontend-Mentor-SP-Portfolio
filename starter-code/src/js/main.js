@@ -26,6 +26,7 @@ function submitForm(){
         topFunction();
         userMessage.classList.add("visible");
         setTimeout(hideUserMessage,3000);
+        form.reset();
     }
 }
 
@@ -44,7 +45,5 @@ function hideUserMessage() {
 }
 
 function topFunction() {
-    document.scrollTop = 0;
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    document.body.scrollIntoView()
 }
