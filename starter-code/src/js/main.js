@@ -1,10 +1,9 @@
 const form = document.querySelector("form");
 const submitButton = document.getElementById("formSubmit");
-const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const errorMessage = document.querySelector(".errorMessage");
-const errorSign = document.querySelector(".errorSign");
-const messageInput = document.getElementById("message");
+const errorSign = document.querySelector(".errorSign")
+const userMessage = document.querySelector(".user-message");
 
 let error = "";
 
@@ -16,13 +15,17 @@ emailInput.addEventListener("input", e => {
         errorSign.classList.remove("visible");
     }
 } )
-submitButton.addEventListener("click", test);
+submitButton.addEventListener("click", submitForm);
 
-function test(){
+function submitForm(){
     if (!validateEmail()) {
         emailInput.classList.add("invalidInput");
         errorMessage.innerHTML = error;
         errorSign.classList.add("visible");
+    } else {
+        topFunction();
+        userMessage.classList.add("visible");
+        setTimeout(hideUserMessage,3000);
     }
 }
 
@@ -34,4 +37,14 @@ function validateEmail()
     }
     error = "Sorry, invalid format here";
     return false;
+}
+
+function hideUserMessage() {
+    userMessage.classList.remove("visible")
+}
+
+function topFunction() {
+    document.scrollTop = 0;
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }

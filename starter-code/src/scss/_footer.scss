@@ -27,8 +27,6 @@ footer {
     @include heading-xl();
   }
 
-
-
   form {
     @include flex(column, stretch, center);
     margin-top: 3rem;
@@ -90,7 +88,6 @@ footer {
     display: block;
     align-self: flex-end;
   }
-
 
 .invalidInput {
   border-bottom: 1px solid hsla(7, 100%, 68%, 1);

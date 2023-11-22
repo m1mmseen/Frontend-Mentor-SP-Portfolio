@@ -122,9 +122,21 @@ nav {
   right: -350px;
 }
 
+picture {
+  position: relative;
+}
 picture img {
   width: 345px;
   height: 253px;
+}
+picture .overlay {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  left: 200px;
+  bottom: 150px;
+  display: grid;
+  row-gap: 1rem;
 }
 
 .project .project-title {
@@ -254,6 +266,8 @@ button {
 
     1. General (body and Images)
     2. Components
+    3. Custom Scrollbar
+    4. Media Queries
 
 */
 /* ----- GENERAL ----- */
@@ -269,6 +283,7 @@ body {
   color: hsl(0, 0%, 98%);
   position: relative;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
@@ -345,6 +360,58 @@ button:hover {
   fill: hsl(153, 71%, 59%);
 }
 
+.user-message {
+  opacity: 0;
+  position: fixed;
+  z-index: 3;
+  left: 45svw;
+  top: 5px;
+  background: hsl(153, 71%, 65%);
+  width: 350px;
+  height: 150px;
+  border-radius: 0 0 5px 5px;
+  transition: 0.3s;
+}
+.user-message .message-titel {
+  padding: 0.5rem 1rem;
+  background: white;
+  color: hsl(153, 71%, 59%);
+}
+.user-message .message-content {
+  padding: 0.5rem 1rem;
+  font-size: 18px;
+}
+.user-message.visible {
+  opacity: 1;
+}
+
+/* ----- CUSTOM SCROLLBAR ----- */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px hsl(0, 0%, 14%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(153, 71%, 59%);
+  border: inset 5px black;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(153, 71%, 59%, 0.7);
+}
+
+/* ----- MEDIA QUERIES ----- */
+/*
+  1. Tablet Design
+  2. Desktop Design
+
+*/
+/* --- 1 --- */
 @media screen and (min-width: 768px) {
   .container {
     padding-inline: 2rem;
@@ -392,7 +459,8 @@ button:hover {
     margin-bottom: 2rem;
   }
 }
-@media screen and (min-width: 768px) and (min-width: 1200px) {
+/* --- 2 --- */
+@media screen and (min-width: 1200px) {
   .container {
     padding-inline: 165px;
   }
@@ -455,6 +523,18 @@ button:hover {
   }
   .contact-form, input[id=name] {
     margin-top: 0;
+  }
+  .project {
+    margin-bottom: 1rem;
+  }
+  picture:hover img {
+    opacity: 0.3;
+  }
+  picture:hover .overlay {
+    opacity: 1;
+  }
+  .button-group {
+    display: none;
   }
 }
 

@@ -1,4 +1,10 @@
+/*
+  1. Tablet Design
+  2. Desktop Design
 
+*/
+
+/* --- 1 --- */
 @media screen and (min-width: 768px) {
   .container {
     padding-inline: 2rem;
@@ -15,8 +21,8 @@
   }
 
   .profil-image {
-    top:0;
-    right:0;
+    top: 0;
+    right: 0;
     width: 322px;
     height: 600px;
     overflow: visible;
@@ -52,13 +58,13 @@
       width: 445px;
     }
 
-    .footer-content{
+    .footer-content {
       margin-bottom: 2rem;
     }
   }
+}
 
-
-
+/* --- 2 --- */
 @media screen and (min-width: 1200px) {
   .container {
     padding-inline: 165px;
@@ -139,4 +145,20 @@
     margin-top: 0;
   }
 
-}}
+  .project {
+    margin-bottom: 1rem;
+  }
+
+  picture:hover img {
+    opacity: 0.3;
+  }
+
+  picture:hover .overlay{
+    opacity: 1;
+  }
+
+  .button-group {
+    display: none;
+  }
+
+}

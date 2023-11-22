@@ -1,7 +1,6 @@
 @import "variables";
 @import "mixins";
 @import "header";
-@import "functions";
 @import "secLanguages";
 @import "secProjects";
 @import "footer";
@@ -10,6 +9,8 @@
 
     1. General (body and Images)
     2. Components
+    3. Custom Scrollbar
+    4. Media Queries
 
 */
 
@@ -27,6 +28,7 @@ body {
   color: $text-secondary;
   position: relative;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
@@ -82,6 +84,7 @@ button:hover {
 .logo {
   @include logo();
 }
+
 .social-icons {
   svg {
     width: 200px;
@@ -93,5 +96,57 @@ button:hover {
     fill: $primary;
   }
 }
+
+.user-message {
+  opacity: 0;
+  position: fixed;
+  z-index: 3;
+  left: 45svw;
+  top: 5px;
+  background: hsl(153, 71%, 65%);
+  width: 350px;
+  height: 150px;
+  border-radius: 0 0 5px 5px;
+  transition: 0.3s;
+
+  .message-titel {
+    padding: .5rem 1rem;
+    background: white;
+    color: $primary;
+  }
+  .message-content {
+    padding: .5rem 1rem;
+    font-size: 18px;
+  }
+
+  &.visible{
+    opacity: 1;
+  }
+}
+
+
+
+/* ----- CUSTOM SCROLLBAR ----- */
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $tertiary;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border: inset 5px black;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:hsla(153, 71%, 59%, 70%);
+}
+
+/* ----- MEDIA QUERIES ----- */
 
 @import "mediaQueries";
