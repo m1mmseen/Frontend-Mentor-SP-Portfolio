@@ -79,4 +79,19 @@ button:hover {
   color: $primary;
 }
 
+.logo {
+  @include logo();
+}
+.social-icons {
+  svg {
+    width: 200px;
+    height: 50px;
+    padding-right: clamp(0.9375rem, 0.6074rem + 1.4085vw, 1.875rem);
+  }
+
+  path:hover {
+    fill: $primary;
+  }
+}
+
 @import "mediaQueries";

@@ -11,12 +11,6 @@ nav {
   row-gap: 1rem;
   margin-top: 20px;
 
-  .logo {
-    @include logo();
-  }
-  .social-icons img {
-    padding-right: clamp(0.9375rem, 0.6074rem + 1.4085vw, 1.875rem);
-  }
 }
 
 .hero {

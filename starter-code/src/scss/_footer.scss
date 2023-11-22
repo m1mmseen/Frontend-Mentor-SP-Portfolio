@@ -2,17 +2,32 @@ footer {
   padding: 50px 0;
   background-image: url("../../assets/images/pattern-rings.svg"), linear-gradient(hsla(0, 0%, 14%, 1), hsla(0, 0%, 14%, 1));
   background-repeat: no-repeat;
-  background-size: contain, cover;
+  background-size: auto, cover;
   background-position:  top 480px left -220px ,center;
   text-align: center;
 
-  .footer-title {
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 40px; /* 100% */
-    letter-spacing: -1.136px;
+  .container{
+    display: grid;
+    justify-items: center;
+    row-gap: 3rem;
+
+    .row-border{
+      border-top: 1px solid $text-secondary;
+      width: 100%;
+    }
   }
+
+  .footer-intro,
+  .footer-content {
+    width: 343px;
+  }
+}
+
+  .footer-title {
+    @include heading-xl();
+  }
+
+
 
   form {
     @include flex(column, stretch, center);
@@ -75,7 +90,7 @@ footer {
     display: block;
     align-self: flex-end;
   }
-}
+
 
 .invalidInput {
   border-bottom: 1px solid hsla(7, 100%, 68%, 1);

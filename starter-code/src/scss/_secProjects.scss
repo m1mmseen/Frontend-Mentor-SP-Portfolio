@@ -7,8 +7,12 @@
   }
 }
 
-.projects {
+.section-content {
   display: grid;
+  justify-items: center;
+}
+
+.projects {
   position: relative;
 
   .project-rings {
