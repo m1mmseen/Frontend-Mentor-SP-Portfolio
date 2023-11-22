@@ -1,6 +1,9 @@
 footer {
   padding: 50px 0;
-  background: $tertiary;
+  background-image: url("../../assets/images/pattern-rings.svg"), linear-gradient(hsla(0, 0%, 14%, 1), hsla(0, 0%, 14%, 1));
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+  background-position:  top 480px left -220px ,center;
   text-align: center;
 
   .footer-title {
@@ -14,14 +17,13 @@ footer {
   form {
     @include flex(column, stretch, center);
     margin-top: 3rem;
+    z-index: 2;
   }
 
   ::placeholder {
     color: $text-secondary;
     text-transform: uppercase;
     opacity: .5;
-    font-weight: 400;
-    vertical-align: top;
   }
 
   input {

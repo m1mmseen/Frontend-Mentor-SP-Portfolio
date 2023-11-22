@@ -119,6 +119,7 @@ nav .social-icons img {
 }
 
 .projects {
+  display: grid;
   position: relative;
 }
 .projects .project-rings {
@@ -158,7 +159,10 @@ picture img {
 
 footer {
   padding: 50px 0;
-  background: hsl(0, 0%, 14%);
+  background-image: url("../../assets/images/pattern-rings.svg"), linear-gradient(hsl(0, 0%, 14%), hsl(0, 0%, 14%));
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+  background-position: top 480px left -220px, center;
   text-align: center;
 }
 footer .footer-title {
@@ -174,13 +178,12 @@ footer form {
   align-items: stretch;
   justify-content: center;
   margin-top: 3rem;
+  z-index: 2;
 }
 footer ::placeholder {
   color: hsl(0, 0%, 98%);
   text-transform: uppercase;
   opacity: 0.5;
-  font-weight: 400;
-  vertical-align: top;
 }
 footer input {
   background: none;
