@@ -1,99 +1,150 @@
-# Frontend Mentor - Single-page developer portfolio
+# Frontend Mentor - Single-page developer portfolio solution
 
-![Design preview for the Single-page developer portfolio coding challenge](./preview.jpg)
+This is a solution to the [Single-page developer portfolio challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/singlepage-developer-portfolio-bBVj2ZPi-x). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for purchasing this premium Frontend Mentor coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. These premium challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
 
-**To do this challenge, you need a good understanding of HTML and CSS, and basic JavaScript.**
+## Overview
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this single-page portfolio and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - Receive an error message when the `form` is submitted if:
   - Any field is empty
   - The email address is not formatted correctly
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
-- **Bonus**: Hook the form up so it sends and stores the user's enquiry (you can use a spreadsheet or Airtable to save the enquiries)
-- **Bonus**: Add your own details (image, skills, projects) to replace the ones in the design
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-### Expected behaviour
+![](assets/m1mmseen.github.io_Frontend-Mentor-SP-Portfolio_.png)
 
-When the user clicks the "Contact me" call-to-action in the hero or projects section, the browser should scroll down to the contact form.
+### Links
 
-## Where to find everything
+- Solution URL: [View Code](https://github.com/m1mmseen/Frontend-Mentor-SP-Portfolio)
+- Live Site URL: [View Site](https://m1mmseen.github.io/Frontend-Mentor-SP-Portfolio/)
 
-Your task is to build out the project to the design file provided. We provide both Sketch and Figma versions of the design, so you can choose which tool you prefer to use. You can download the design file on the platform. **Please be sure not to share them with anyone else.** The design download comes with a `README.md` file as well to help you get set up.
+## My process
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized. Some are reusable at multiple screen sizes. So if you don't see an image in a specific folder, it will typically be in another folder for that page.
+### Built with
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+- Semantic HTML5 markup
+- SCSS
+- Flexbox, CSS Grid, Absolute Positioning
+- Mobile-first workflow
 
-The design system in the design file will give you more information about the various colors, fonts, and styles used in this project. Our fonts always come from [Google Fonts](https://fonts.google.com/).
 
-## Building your project
+### What I learned
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+Use css property clamp for responsive font-sizes e.g.:
 
-1. Separate the `starter-code` from the rest of this project and rename it to something meaningful for you. Initialize the codebase as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/). **⚠️ IMPORTANT ⚠️: There are already a couple of `.gitignore` files in this project. Please do not remove them or change the content of the files. If you create a brand new project, please use the `.gitignore` files provided in your new codebase. This is to avoid the accidental upload of the design files to GitHub. With these premium challenges, please be sure not to share the design files in your GitHub repo. Thanks!**
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+```scss
+@mixin heading-xl() {
+  font-size: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem);
+  letter-spacing: clamp(-0.1562rem, -0.0413rem + -0.1277vw, -0.0712rem);
+}
+```
 
-## Deploying your project
+E-Mail validation with regex (uses code snippet from [w3resources](https://www.w3resource.com/javascript/form/email-validation.php))
+```js
+function validateEmail()
+{
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value))
+  {
+    return true;
+  }
+  error = "Sorry, invalid format here";
+  return false;
+}
+```
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+Implement a responsive way for scrolling to top (is used here after submit the form)
+```js
+function scrollToTop() {
+  document.body.scrollIntoView()
+}
+```
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+Provide a User Message after submitting the form with css and js{
+```scss
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+.user-message {
+  opacity: 0;
+  position: fixed;
+  z-index: 3;
+  left: 50svw;
+  top: 5px;
+  translate: -50% 0;
+  background: hsl(153, 71%, 65%);
+  width: 350px;
+  height: 150px;
+  border-radius: 0 0 5px 5px;
+  transition: 0.5s ease-in-out;
 
-## Create a custom `README.md`
+  .message-titel {
+    padding: .5rem 1rem;
+    background: $primary;
+    color: $text-secondary;
+  }
+  .message-content {
+    background: $text-secondary;
+    color: $primary;
+    padding: .5rem 1rem;
+    font-size: 18px;
+  }
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+  &.visible{
+    opacity: 1;
+  }
+}
+```
+```js
+function hideUserMessage() {
+userMessage.classList.remove("visible")
+}
+```
+Design a custom scrollbar
+```scss
+::-webkit-scrollbar {
+  width: 20px;
+}
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $tertiary;
+  border-radius: 10px;
+}
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border: inset 5px black;
+  border-radius: 10px;
+}
 
-## Submitting your solution
+::-webkit-scrollbar-thumb:hover {
+  background:hsla(153, 71%, 59%, 70%);
+}
+```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+### Useful resources
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- [Email Validation with regex in js](https://www.w3resource.com/javascript/form/email-validation.php)
+- [Custom Scrollbar](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp)
 
-**⚠️ IMPORTANT ⚠️: With these premium challenges, please be sure not to upload the design files to GitHub when you're submitting to the platform and sharing it around. If you've created a brand new project, the easiest way to do that is to copy across the `.gitignore` provided in this starter project.**
+## Author
 
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-**Have fun building!** 🚀
+- Frontend Mentor - [m1mmseen](https://www.frontendmentor.io/profile/m1mmseen)
