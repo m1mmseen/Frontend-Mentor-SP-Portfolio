@@ -11,12 +11,9 @@ This is a solution to the [Single-page developer portfolio challenge on Frontend
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -29,88 +26,125 @@ Users should be able to:
   - The email address is not formatted correctly
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
-- **Bonus**: Hook the form up so it sends and stores the user's enquiry (you can use a spreadsheet or Airtable to save the enquiries)
-- **Bonus**: Add your own details (image, skills, projects) to replace the ones in the design
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](assets/m1mmseen.github.io_Frontend-Mentor-SP-Portfolio_.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [View Code](https://github.com/m1mmseen/Frontend-Mentor-SP-Portfolio)
+- Live Site URL: [View Site](https://m1mmseen.github.io/Frontend-Mentor-SP-Portfolio/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
+- SCSS 
+- Flexbox, CSS Grid, Absolute Positioning
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Use css property clamp for responsive font-sizes e.g.:
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
+```scss
+@mixin heading-xl() {
+  font-size: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem);
+  letter-spacing: clamp(-0.1562rem, -0.0413rem + -0.1277vw, -0.0712rem);
+}
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+
+E-Mail validation with regex (uses code snippet from [w3resources](https://www.w3resource.com/javascript/form/email-validation.php))
+```js
+function validateEmail()
+{
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value))
+  {
+    return true;
+  }
+  error = "Sorry, invalid format here";
+  return false;
+}
+```
+
+Implement a responsive way for scrolling to top (is used here after submit the form)
+```js
+function scrollToTop() {
+  document.body.scrollIntoView()
+}
+```
+
+Provide a User Message after submitting the form with css and js{
+```scss
+
+.user-message {
+  opacity: 0;
+  position: fixed;
+  z-index: 3;
+  left: 50svw;
+  top: 5px;
+  translate: -50% 0;
+  background: hsl(153, 71%, 65%);
+  width: 350px;
+  height: 150px;
+  border-radius: 0 0 5px 5px;
+  transition: 0.5s ease-in-out;
+
+  .message-titel {
+    padding: .5rem 1rem;
+    background: $primary;
+    color: $text-secondary;
+  }
+  .message-content {
+    background: $text-secondary;
+    color: $primary;
+    padding: .5rem 1rem;
+    font-size: 18px;
+  }
+
+  &.visible{
+    opacity: 1;
+  }
 }
 ```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function hideUserMessage() {
+userMessage.classList.remove("visible")
+}
+```
+Design a custom scrollbar 
+```scss
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $tertiary;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border: inset 5px black;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:hsla(153, 71%, 59%, 70%);
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Email Validation with regex in js](https://www.w3resource.com/javascript/form/email-validation.php)
+- [Custom Scrollbar](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp)
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [m1mmseen](https://www.frontendmentor.io/profile/m1mmseen)

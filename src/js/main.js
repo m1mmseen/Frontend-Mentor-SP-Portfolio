@@ -23,7 +23,7 @@ function submitForm(){
         errorMessage.innerHTML = error;
         errorSign.classList.add("visible");
     } else {
-        topFunction();
+        scrollToTop();
         userMessage.classList.add("visible");
         setTimeout(hideUserMessage,3000);
         form.reset();
@@ -44,6 +44,6 @@ function hideUserMessage() {
     userMessage.classList.remove("visible")
 }
 
-function topFunction() {
+function scrollToTop() {
     document.body.scrollIntoView()
 }
